@@ -202,7 +202,7 @@ export default {
   }
 }
 /*
-*author:lipanke
+*author:alisa
 *day:2017-12-06
 *update :2017-12-13
 *使用方法：
