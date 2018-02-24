@@ -1,5 +1,5 @@
 <template>
-	<!--    照片添加  参考https://www.jianshu.com/p/0cf14f4bc2eb 基于钉钉移动端api的图片上传 -->
+	<!--    照片添加  参考https://www.jianshu.com/p/0cf14f4bc2eb 基于钉钉移动端api的图片上传 需要在index文件里边引入aliyun-oss-sdk-4.4.4.min.js文件-->
 	<section class="aui-grid aui-margin-t-15">
 		<div class="aui-row">
 			<div class="aui-col-xs-4 img-box" v-for=" (imgsrc,index) in imgcontent">
@@ -131,6 +131,7 @@ import picurl from '@/assets/picurl'
 							// 这里是生成文件名
 							// alert(f.type);
 							var obj = this.reast + i; // 这里是生成文件名
+              //此时已经确定了图片在服务器上的地址
 							var storeAs = picurl+"/" + obj + suffix; //命名空间
 							//console.log(' => ' + storeAs);
 							var self = this;
