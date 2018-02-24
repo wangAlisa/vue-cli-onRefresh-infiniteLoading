@@ -97,9 +97,10 @@ import picurl from '@/assets/picurl'
 						return false;
 					}
 				}
-				if(f == undefined) {
-					return;
-				}
+				// 因为是给input添加的change事件所以不必判断获取不到f的时候，开始value是空，当value不为空的时候才会触发change 事件
+				// if(f == undefined) {
+				// 	return;
+				// }
 
 				if(this.imgcontent.length >= 8) {
 					this.picnum = false;
@@ -135,12 +136,14 @@ import picurl from '@/assets/picurl'
 							var self = this;
 							console.log(fileList[i])
 								//console.log(f)
+							// 把图片上传到阿里云上
 							client.multipartUpload(storeAs, fileList[i]).then(function(result) {
-								console.log(result); //返回对象
+								console.log(result); //返回对象包含图片的信息
 								let resultre = result.name.replace(picurl+'/', '');
 								let typeimg = result.name.slice(-3);
 								(typeimg == "jpg") ? typeimg = "0": typeimg = "1";
 								let urlupdat = '{"fileId":"' + resultre + '","fileType":' + typeimg + '}';
+								// 在提交表单的时候，需要把上传到阿里云的图片因袭提交到数据库保存
 								self.urltype.push(urlupdat);
 								// 点击预览图片准备
 								let bigdat = 'http://sysvoc-pic.speiyou.cn/'+picurl+'/' + resultre + '?x-oss-process=image/resize,m_lfit,h_950,w_950';
