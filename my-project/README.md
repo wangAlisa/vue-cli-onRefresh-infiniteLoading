@@ -27,3 +27,4 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 	uploading文本框是基于cropperjs的文件上传和裁剪和cavas画图实现图片上传的
 	uploadPic文件是基于钉钉api及oss来实现图片上传的
  -->
+ end
